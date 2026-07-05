@@ -20,6 +20,25 @@ buttonsArr.forEach(button => {
     // add an event for every buttons
     button.addEventListener('click', (e) => {
         console.log(e.target)
+        // validation and operation
+        
+        if (e.target.innerHTML == "="){
+        //means if innerHTML of target of e is equal sign ? then this code will run  
+
+
+            console.log("equal btn clicked")
+            // we checked: is we get the btns innerHtml
+
+
+
+            // is true then we set the innerHtml as a value of input and display that
+            valueString = eval(valueString);
+            input.value = valueString;
+        }
+
+        // if the conditions will be false then set the innerHtml as a value of input and display that. now we got the number buttons separately and display that easily
+        valueString += e.target.innerHTML;
+        input.value = valueString
     })
 } )
 
