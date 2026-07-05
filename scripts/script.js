@@ -6,6 +6,10 @@ console.log(input);
 let buttons = document.querySelectorAll('button')
 console.log(buttons);
 
+let isResultDisplayed = false;
+
+console.log(isResultDisplayed);
+
 
 // set default value of input
 let valueString = "";
@@ -13,6 +17,8 @@ let valueString = "";
 // create an array with btns we got that
 let buttonsArr = Array.from(buttons)
 console.log(buttonsArr);
+
+
 
 
 // run a forEach loop on the button array  to get each an every button separately
@@ -34,6 +40,20 @@ buttonsArr.forEach(button => {
             // is true then we set the innerHtml as a value of input and display that
             valueString = eval(valueString);
             input.value = valueString;
+
+            // reassign the isResultDisplayed's value by true
+            isResultDisplayed = true;
+            console.log(isResultDisplayed);
+
+            // hide the undefined value
+            if (input.value == "undefined") {
+                valueString = "";
+                input.value = valueString;
+            }
+
+
+
+
         }
 
         else if
@@ -42,7 +62,7 @@ buttonsArr.forEach(button => {
             input.value = valueString;
         }
 
-        else if(e.target.innerHTML == 'DEL'){
+        else if (e.target.innerHTML == 'DEL') {
             valueString = valueString.substring(0, valueString.length - 1);
             input.value = valueString;
         }
@@ -50,10 +70,24 @@ buttonsArr.forEach(button => {
 
 
         else {
+            // dabble condition: is result is displayed and is result is non a number ?
+            // if innerHTML is a number and result has been displayed reset the function.
+            if (isResultDisplayed == true && isNaN (e.target.innerHTML) == false) {
+                valueString = "";
+                input.value = valueString;
+                isResultDisplayed = false
+            }
+            // if innerHTML is not a number and result is undisplayed too continue typing.
             // if the conditions will be false then set the innerHtml as a value of input and display that. now we got the number buttons separately and display that easily
-            valueString += e.target.innerHTML;
-            input.value = valueString
+            else {
+                valueString += e.target.innerHTML;
+                input.value = valueString;
+            }
         }
+
+
+
+
     })
 })
 
