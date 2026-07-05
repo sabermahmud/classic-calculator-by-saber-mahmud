@@ -74,6 +74,10 @@ button{
     color: aliceblue;
 }
 
+.negative{
+    color: rgb(231, 74, 74);
+}
+
 .operator{
     color: greenyellow;
     font-size: 30px;
