@@ -73,9 +73,14 @@ buttonsArr.forEach(button => {
             // dabble condition: is result is displayed and is result is non a number ?
             // if innerHTML is a number and result has been displayed reset the function.
             if (isResultDisplayed == true && isNaN (e.target.innerHTML) == false) {
+
                 valueString = "";
                 input.value = valueString;
+
                 isResultDisplayed = false
+
+                valueString += e.target.innerHTML;
+                input.value = valueString;                
             }
             // if innerHTML is not a number and result is undisplayed too continue typing.
             // if the conditions will be false then set the innerHtml as a value of input and display that. now we got the number buttons separately and display that easily
