@@ -12,7 +12,7 @@ let valueString = "";
 
 // create an array with btns we got that
 let buttonsArr = Array.from(buttons)
-    console.log(buttonsArr);
+console.log(buttonsArr);
 
 
 // run a forEach loop on the button array  to get each an every button separately
@@ -21,9 +21,9 @@ buttonsArr.forEach(button => {
     button.addEventListener('click', (e) => {
         console.log(e.target)
         // validation and operation
-        
-        if (e.target.innerHTML == "="){
-        //means if innerHTML of target of e is equal sign ? then this code will run  
+
+        if (e.target.innerHTML == '=') {
+            //means if innerHTML of target of e is equal sign ? then this code will run  
 
 
             console.log("equal btn clicked")
@@ -36,11 +36,26 @@ buttonsArr.forEach(button => {
             input.value = valueString;
         }
 
-        // if the conditions will be false then set the innerHtml as a value of input and display that. now we got the number buttons separately and display that easily
-        valueString += e.target.innerHTML;
-        input.value = valueString
+        else if
+            (e.target.innerHTML == 'AC') {
+            valueString = "";
+            input.value = valueString;
+        }
+
+        else if(e.target.innerHTML == 'DEL'){
+            valueString = valueString.substring(0, valueString.length - 1);
+            input.value = valueString;
+        }
+
+
+
+        else {
+            // if the conditions will be false then set the innerHtml as a value of input and display that. now we got the number buttons separately and display that easily
+            valueString += e.target.innerHTML;
+            input.value = valueString
+        }
     })
-} )
+})
 
 
 
