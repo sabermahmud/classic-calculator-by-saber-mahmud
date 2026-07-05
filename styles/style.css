@@ -33,6 +33,14 @@ body{
     color: aliceblue;
 }
 
+.logo-r-part{
+    color: greenyellow;
+}
+
+p{
+    color: rgb(83, 107, 121);
+}
+
 
 input{
     width: 450px;
